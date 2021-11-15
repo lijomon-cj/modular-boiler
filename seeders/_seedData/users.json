@@ -1,0 +1,26 @@
+[
+    {
+        "email":"andy.rubin@yopmail.com",
+        "password":"Test@123"
+    },
+    {
+        "email":"mark@yopmail.com",
+        "password":"Test@123"
+    },
+    {
+        "email":"sunder.pichai@yopmail.com",
+        "password":"Test@123"
+    },
+    {
+        "email":"tim.cook@yopmail.com",
+        "password":"Test@123"
+    },
+    {
+        "email":"r.tata@yopmail.com",
+        "password":"Test@123"
+    },
+    {
+        "email":"evanschris@yopmail.com",
+        "password":"Test@123"
+    }
+]
