@@ -29,7 +29,8 @@
     "nodemon": "^2.0.15"
   },
   "_moduleAliases": {
-    "@root"      : ".",
-    "@user"      : "./modules/user"
+    "@root": ".",
+    "@user": "./modules/user",
+    "@utils": "./modules/utils"
   }
 }

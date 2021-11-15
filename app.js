@@ -1,10 +1,12 @@
+require('module-alias/register')
+
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const morgan =  require('morgan')
 const dotenv = require('dotenv').config('./.env')
 
-const loggerUtil = require('./utils/logger');
+const {logger} = require('@utils');
 const routes = require('./routes')
 
 const app = express();
@@ -26,13 +28,13 @@ const PORT = process.env.PORT;
 
 server.listen(PORT, (err) => {
     if (err) {
-        loggerUtil.error({
+        logger.error({
             message: `Server error - ${error.toString()}`,
             level: 'error',
           });
     } else {
-        require('./utils/dbConnection');
-        loggerUtil.log({
+        require('@utils').dbConnection();
+        logger.log({
             message: `Server listening at port ${PORT} in ${process.env.NODE_ENV} mode`,
             level: 'info',
           });
