@@ -1,10 +1,10 @@
 require('module-alias/register')
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const morgan =  require('morgan')
-const dotenv = require('dotenv').config('./.env')
 
 const {logger} = require('@utils');
 const routes = require('./routes')

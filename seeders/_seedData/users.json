@@ -1,25 +1,37 @@
 [
     {
+        "firstName":"Andy",
+        "lastName":"Rubin",
         "email":"andy.rubin@yopmail.com",
         "password":"Test@123"
     },
     {
+        "firstName":"Mark",
+        "lastName":"Zuckerberg",
         "email":"mark@yopmail.com",
         "password":"Test@123"
     },
     {
+        "firstName":"Sundar",
+        "lastName":"Pichai",
         "email":"sunder.pichai@yopmail.com",
         "password":"Test@123"
     },
     {
+        "firstName":"Tim",
+        "lastName":"Cook",
         "email":"tim.cook@yopmail.com",
         "password":"Test@123"
     },
     {
+        "firstName":"Ratan",
+        "lastName":"Tata",
         "email":"r.tata@yopmail.com",
         "password":"Test@123"
     },
     {
+        "firstName":"Chris",
+        "lastName":"Evans",
         "email":"evanschris@yopmail.com",
         "password":"Test@123"
     }

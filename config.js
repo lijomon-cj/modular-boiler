@@ -1,16 +1,18 @@
 module.exports = {
-    messages: {
-        auth: {
-            logged_in: 'Successfully logge in!',
-            login_failed: 'Login failed. Please try later!',
-            invalid_login: 'Invalid credentilas',
-            password_minsmatch: 'Password mismatch found'
-        },
-        user: {
-            user_details_found: 'User details found',
-            profile_details_found: 'Successfully fetched user profile',
-            user_not_found: 'User details not found',
-            profile_not_found: 'Unable to get user profile'
-        }
-    }
+    HTTP_STATUS_CODES: {
+        OK: 200,
+        CREATED: 201,
+        ACCEPTED: 202,
+        NO_CONTENT: 204,
+        BAD_REQUEST: 400,
+        UNAUTHORIZED: 401,
+        FORBIDDEN: 403,
+        NOT_FOUND: 404,
+        UNPROCESSABLE_ENTITY: 422,
+        FAILED_DEPENDENCY: 424,
+        TOO_MANY_REQUESTS: 429,
+        INTERNAL_SERVER_ERROR: 500,
+        BAD_GATEWAY: 502,
+        SERVICE_UNAVAILABLE: 503,
+      },
 }
