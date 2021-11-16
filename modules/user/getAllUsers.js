@@ -1,12 +1,13 @@
 const User = require("../../models/user")
 
-const messages = require('@constants/messages')
+const { messages } = require('@constants')
+const { response } = require('@utils')
 
 exports.getAllUsers = async (req, res, next) => {
     const users = await User.find();
-    return res.status(200).json({
-        success: true,
-        message: messages.user.user_details_found,
-        data: users
-    })
+    return response.successResponse(
+        res, 
+        messages.user.user_details_found,
+        users
+    )
 }

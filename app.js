@@ -6,7 +6,7 @@ const http = require('http');
 const cors = require('cors');
 const morgan =  require('morgan')
 
-const {logger} = require('@utils');
+const { logger } = require('@utils');
 const routes = require('./routes')
 
 const app = express();
