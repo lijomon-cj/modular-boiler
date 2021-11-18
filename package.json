@@ -4,6 +4,7 @@
   "description": "modular boilerplate node express",
   "main": "app.js",
   "scripts": {
+    "postinstall": "link-module-alias",
     "start": "NODE_ENV=production exec node app.js",
     "dev": "NODE_ENV=development exec nodemon app.js"
   },
@@ -27,12 +28,14 @@
     "winston-daily-rotate-file": "^4.5.5"
   },
   "devDependencies": {
+    "link-module-alias": "^1.2.0",
     "nodemon": "^2.0.15"
   },
   "_moduleAliases": {
-    "@root": ".",
-    "@user": "./modules/user",
-    "@utils": "./modules/utils",
-    "@constants": "./modules/constants"
+    "root": ".",
+    "auth": "./modules/auth",
+    "user": "./modules/user",
+    "utilities": "./modules/utils",
+    "consts": "./modules/constants"
   }
 }
