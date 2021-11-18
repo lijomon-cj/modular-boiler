@@ -1,7 +1,5 @@
-require('module-alias/register')
-
 const express = require('express');
-const { getAllUsers, getUserProfile } = require('@user');
+const { getAllUsers, getUserProfile } = require('user');
 
 const router = express.Router();
 

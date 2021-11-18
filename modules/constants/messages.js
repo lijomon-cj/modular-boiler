@@ -3,7 +3,8 @@ module.exports = {
         logged_in: 'Successfully logge in!',
         login_failed: 'Login failed. Please try later!',
         invalid_login: 'Invalid credentilas',
-        password_minsmatch: 'Password mismatch found'
+        password_minsmatch: 'Password mismatch found',
+        signup_success: 'User has been registered successfully'
     },
     user: {
         user_details_found: 'User details found',
