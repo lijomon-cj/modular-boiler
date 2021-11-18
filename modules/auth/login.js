@@ -20,7 +20,16 @@ exports.login = async (req, res, next) => {
 
 		const isMatch = await user.matchPassword(password);
 
-		response.successResponse(res, messages.user.user_details_found, user);
+		if (!isMatch) {
+			return next(new errorResponse('Invalid credentials', 400));
+		}
+
+		const token = await user.genrateToken();
+
+		response.successResponse(res, messages.user.user_details_found, {
+			token,
+			user,
+		});
 	} catch (error) {
 		console.log(error);
 		return next(new errorResponse('Error fetching user details', 500));
