@@ -3,7 +3,7 @@ const { getAllUsers, getUserProfile } = require('user');
 
 const router = express.Router();
 
-router.route('/all').get(getAllUsers)
-router.route('/profile').get(getUserProfile)
+router.route('/all').get(getAllUsers);
+router.route('/profile').get(getUserProfile);
 
 module.exports = router;

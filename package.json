@@ -35,7 +35,7 @@
     "root": ".",
     "auth": "./modules/auth",
     "user": "./modules/user",
-    "utilities": "./modules/utils",
-    "consts": "./modules/constants"
+    "utilities": "./modules/utilities",
+    "configs": "./modules/configs"
   }
 }
