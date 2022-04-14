@@ -1,17 +1,17 @@
 'use strict';
-
+// Dependencies
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
+// Local modules
 const userActions = require('user');
 const loggerUtil = require('../utilities/logger');
-
+// Serialize func
 exports.serializeUser = () => {
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 };
-
+// Deserialize func
 exports.deserializeUser = () => {
   passport.deserializeUser(async (id, done) => {
     try {
@@ -31,7 +31,7 @@ exports.deserializeUser = () => {
     }
   });
 };
-
+// Passport strategy
 exports.configureStrategy = () => {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
