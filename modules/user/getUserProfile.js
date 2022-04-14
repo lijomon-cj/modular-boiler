@@ -1,3 +1,3 @@
-exports.getUserProfile = async (req, res, next) => {
+module.exports = async (req, res, next) => {
 	res.sendStatus(200);
 };
