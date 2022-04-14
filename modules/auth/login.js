@@ -1,35 +1,20 @@
-const { response, errorResponse, logger } = require('utilities');
-const { User } = require('models');
+// Dependencies
+const passport = require('passport');
+const { response, errorResponse } = require('utilities');
 const { messages } = require('configs');
+// Models
+const { User } = require('models');
 
 module.exports = async (req, res, next) => {
-  const { username, password } = req.body;
-
-  if (!username || !password) {
-    return next(new errorResponse('Username, Password mandatory', 400));
-  }
-
   try {
-    const user = await User.findOne({
-      email: username,
-    });
-
-    if (!user) {
-      return next(new errorResponse('User details not found', 404));
-    }
-
-    const isMatch = await user.matchPassword(password);
-
-    if (!isMatch) {
-      return next(new errorResponse('Invalid credentials', 400));
-    }
-
-    const token = await user.genrateToken();
-
-    response.successResponse(res, messages.user.user_details_found, {
-      token,
-      user,
-    });
+    passport.authenticate('local', async function (_err, user) {
+      if (!user) return response.notFound(res, messages.auth.invalid_login);
+      const token = await user.generateToken();
+      return response.success(res, messages.auth.logged_in, {
+        userId: user._id,
+        token
+      });
+    })(req, res, next);
   } catch (error) {
     console.log(error);
     return next(new errorResponse('Error fetching user details', 500));

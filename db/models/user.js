@@ -4,11 +4,11 @@ const jwt = require('jsonwebtoken');
 
 const UserSchema = new mongoose.Schema(
 	{
-		firstname: {
+		firstName: {
 			type: String,
 			required: true,
 		},
-		lastname: {
+		lastName: {
 			type: String,
 		},
 		email: {
@@ -40,8 +40,8 @@ UserSchema.methods.matchPassword = function (userPassword) {
 	return bcrypt.compare(userPassword, this.password);
 };
 
-// Generate authentication toen
-UserSchema.methods.genrateToken = function () {
+// Generate authentication token
+UserSchema.methods.generateToken = function () {
 	const token = jwt.sign(
 		{
 			id: this._id.toString(),

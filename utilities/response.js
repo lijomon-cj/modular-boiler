@@ -1,7 +1,7 @@
-const { httpStatus } = require('configs');
+const { httpStatus, messages } = require('configs');
 const logger = require('utilities/logger');
 
-exports.successResponse = (res, message, data) => {
+exports.success = (res, message, data) => {
   const response = {
     success: true,
     message: message,

@@ -5,8 +5,10 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const morgan = require('morgan');
+const passport = require('passport');
 
 const { logger, errorHandler } = require('utilities');
+const passportConfig = require('./configs/passportConfiguration');
 const routes = require('./routes');
 
 const app = express();
@@ -21,6 +23,12 @@ app.use(
 );
 app.use(express.json({ limit: '50mb' }));
 app.use(morgan('combined'));
+
+// Configure passport module
+app.use(passport.initialize());
+passportConfig.serializeUser();
+passportConfig.deserializeUser();
+passportConfig.configureStrategy();
 
 app.use(routes);
 
