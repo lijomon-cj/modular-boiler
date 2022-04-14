@@ -7,10 +7,12 @@ const { User } = require('models');
 
 module.exports = async (req, res, next) => {
   try {
+    // Validate existing user
     const existingUser = await getUserByEmail(req.body.email)
     if (existingUser) {
       return response.badRequest(res, messages.user.email_already_exist)
     }
+    // Create a new user data
     const user = await User.create(req.body);
     const token = await user.generateToken();
       return response.success(res, messages.auth.signup_success, {
@@ -18,6 +20,6 @@ module.exports = async (req, res, next) => {
         token
       });
   } catch (error) {
-    return next(new errorResponse('Invalid request', 400));
+    return next(new errorResponse('Invalid request', 400)); // Error response
   }
 };

@@ -37,7 +37,6 @@ exports.configureStrategy = () => {
     new LocalStrategy(async (username, password, done) => {
       try {
         const user = await userActions.getUserByEmail(username);
-        console.log(user);
         if (!user) {
           return done(null, false);
         }
