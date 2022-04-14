@@ -33,7 +33,6 @@ exports.deserializeUser = () => {
 };
 
 exports.configureStrategy = () => {
-    console.log('here 1');
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       try {

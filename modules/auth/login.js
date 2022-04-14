@@ -2,8 +2,6 @@
 const passport = require('passport');
 const { response, errorResponse } = require('utilities');
 const { messages } = require('configs');
-// Models
-const { User } = require('models');
 
 module.exports = async (req, res, next) => {
   try {
