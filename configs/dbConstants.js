@@ -5,7 +5,7 @@ module.exports = {
 	},
 	DEFAULTS: {
 		SORT: 'createdAt',
-		OREDR: -1,
+		ORDER: -1,
 		PAGE: 1,
 		LIMIT: 10,
 		SKIP: 0,
