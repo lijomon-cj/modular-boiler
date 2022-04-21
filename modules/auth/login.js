@@ -1,14 +1,14 @@
 // Dependencies
 const passport = require('passport');
 // Local modules
-const { response, errorResponse, redis } = require('utilities');
+const { response, errorResponse, redis, EmailService } = require('utilities');
 const { messages } = require('configs');
 /**
  * USER LOGIN FUNC
- * @param {object} req 
- * @param {object} res 
- * @param {object} next 
- * @returns 
+ * @param {object} req
+ * @param {object} res
+ * @param {object} next
+ * @returns
  */
 module.exports = async (req, res, next) => {
   try {
@@ -24,9 +24,10 @@ module.exports = async (req, res, next) => {
         },
         false
       );
+      new EmailService(user.email).sendContactMessage();
       return response.success(res, messages.auth.logged_in, {
         userId: user._id,
-        token
+        token,
       });
     })(req, res, next);
   } catch (error) {
