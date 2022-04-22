@@ -20,11 +20,17 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-validator": "^6.14.0",
+    "html-to-text": "^8.2.0",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.2",
     "mongoose": "^6.0.12",
     "morgan": "^1.10.0",
-    "passport": "^0.5.0",
+    "nodemailer": "^6.7.3",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2",
+    "redis": "^4.0.6",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
   },
@@ -34,9 +40,11 @@
   },
   "_moduleAliases": {
     "root": ".",
-    "auth": "./modules/auth",
+    "models": "./db/models",
+    "authentication": "./modules/auth",
     "user": "./modules/user",
-    "utilities": "./modules/utilities",
-    "configs": "./modules/configs"
+    "utilities": "./utilities",
+    "configs": "./configs",
+    "validation": "./middleware/validation"
   }
 }

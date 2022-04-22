@@ -1,9 +1,12 @@
+// Dependencies
 const express = require('express');
-const { signup, login } = require('auth');
-
+// Import controllers
+const { signup, login } = require('authentication');
+const { authentication, validate } = require('validation');
+// Express router
 const router = express.Router();
-
-router.route('/login').get(login);
-router.route('/signup').post(signup);
-
+// Define routes
+router.route('/login').post(authentication('login'), validate, login);
+router.route('/signup').post(authentication('registration'), validate, signup);
+// Export router
 module.exports = router;

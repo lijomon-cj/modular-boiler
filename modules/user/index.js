@@ -1,7 +1,11 @@
-const { getAllUsers } = require('./getAllUsers');
-const { getUserProfile } = require('./getUserProfile');
+const getAllUsers = require('./getAllUsers');
+const getUserProfile = require('./getUserProfile');
+const getUserById = require('./getUserById');
+const getUserByEmail = require('./getUserByEmail');
 
 module.exports = {
-	getAllUsers: getAllUsers,
-	getUserProfile: getUserProfile,
+	getAllUsers,
+	getUserProfile,
+	getUserById,
+	getUserByEmail
 };

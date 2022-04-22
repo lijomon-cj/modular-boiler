@@ -1,13 +1,25 @@
-const User = require('../../models/user');
-
+// Dependencies
 const { messages } = require('configs');
 const { response, errorResponse } = require('utilities');
+const { getUserByEmail } = require('user');
+// Models
+const { User } = require('models');
 
-exports.signup = async (req, res, next) => {
-	try {
-		const user = await User.create(req.body);
-		return response.successResponse(res, messages.auth.signup_success, user);
-	} catch (error) {
-		return next(new errorResponse('Invalid payload', 400));
-	}
+module.exports = async (req, res, next) => {
+  try {
+    // Validate existing user
+    const existingUser = await getUserByEmail(req.body.email)
+    if (existingUser) {
+      return response.badRequest(res, messages.user.email_already_exist)
+    }
+    // Create a new user data
+    const user = await User.create(req.body);
+    const token = await user.generateToken();
+      return response.success(res, messages.auth.signup_success, {
+        userId: user._id,
+        token
+      });
+  } catch (error) {
+    return next(new errorResponse('Invalid request', 400)); // Error response
+  }
 };
